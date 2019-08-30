@@ -51,6 +51,7 @@ class Pila{
 int main()
 {
     Pila pila1;
+    Pila pila2; 
 
     int numeros[5], *num, par, impar;
     cout << "Por favor ingrese 5 nùmeros: \n";
@@ -76,6 +77,15 @@ int main()
 
     cout << par << endl;
     cout << impar << endl; 
+
+    pila1.push(par);
+    pila2.push(impar);
+
+    cout << "pila1" << endl;
+    pila1.mostrarPila();
+
+    cout << "pila2" << endl;
+    pila2.mostrarPila(); 
 
     return 0; 
 
