@@ -14,7 +14,6 @@ struct pilas
 
 void menu (void);
 void ingresar (void);
-void sacar (void);
 void actualizar_pila (void);
 
 main ()
@@ -30,7 +29,6 @@ menu (void)
   for (;;)
     {
       cout << "\n1. Ingresar datos";
-      cout << "\t2. Sacar datos";
       cout << "\t0. Terminar";
       cout << "\n Ingrese opcion: ";
       cin >> opc;
@@ -38,9 +36,6 @@ menu (void)
 	{
 	case 1:
 	  ingresar ();
-	  break;
-	case 2:
-	  sacar ();
 	  break;
 	case 0:
 	  exit (1);
@@ -71,23 +66,6 @@ ingresar (void)
   cin >> e->d;
   e->a = c;
   c = e;
-}
-
-void
-sacar (void)
-{
-  if (!c)
-    {
-      cout << "\n\nNo hay elementos!!";
-      return;
-    }
-
-  e = new (pilas);
-  e = c;
-  cout << "\n\nElemento eliminado: " << e->d;
-  c = e->a;
-  delete (e);
-
 }
 
 void
