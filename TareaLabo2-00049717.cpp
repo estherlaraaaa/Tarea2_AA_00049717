@@ -11,7 +11,12 @@ struct Nodo{
   Nodo *sig;
 }*inicio;
 
-class Pila{
+struct Nodo2{
+  int dato;
+  Nodo2 *sig;
+}*inicio2;
+
+class PilaDeNumerosPares{
   public:
     Nodo *crearNodo(int valor){
       Nodo *n = new Nodo;
@@ -43,35 +48,35 @@ class Pila{
       }
     }
 
-    Pila(){
+    PilaDeNumerosPares(){
       inicio = nullptr;
     }
 };
 
-class Pila2{
+class PilaDeNumerosImpares{
   public:
-    Nodo *crearNodo(int valor){
-      Nodo *n = new Nodo;
+    Nodo2 *crearNodo(int valor){
+      Nodo2 *n = new Nodo2;
       n->dato = valor;
       n->sig=nullptr;
       return n;
     }
 
     void pusha(int valor){
-      Nodo *n = crearNodo(valor);
-      n->sig = inicio;
-      inicio = n;
+      Nodo2 *n = crearNodo(valor);
+      n->sig = inicio2;
+      inicio2 = n;
     }
 
     void pop(){
-      Nodo *temp = inicio;
-      inicio = inicio -> sig; 
+      Nodo2 *temp = inicio2;
+      inicio2 = inicio2 -> sig; 
       free(temp);
     }
 
     void mostrarPila2(){
-      Nodo *temp = inicio;
-      if(!inicio)
+      Nodo2 *temp = inicio2;
+      if(!inicio2)
         cout<<"the stack is empty"<<endl;
       else
       while(temp){
@@ -80,15 +85,15 @@ class Pila2{
       }
     }
 
-    Pila2(){
-      inicio = nullptr;
+    PilaDeNumerosImpares(){
+      inicio2 = nullptr;
     }
 };
 
 int main()
 {
-    Pila pila1;
-    Pila2 pila2; 
+    PilaDeNumerosPares pila1;
+    PilaDeNumerosImpares pila2; 
 
     int numeros[5], *num, par=0, impar=0;
     cout << "Por favor ingrese 5 nùmeros: \n";
@@ -103,16 +108,15 @@ int main()
     {
         if (*num%2==0){
           par++;
+          pila1.push(*num);
         }
         else if(*num%2!=0){
           impar++; 
+          pila2.pusha(*num);
         }
         num ++; 
     }
 
-    
-    pila1.push(par);
-    pila2.pusha(impar);
     
     cout << "pila1: ";
     pila1.mostrarPila();
