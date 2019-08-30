@@ -6,16 +6,20 @@
 
 using namespace std;
 
+//nodo para la pila1 de numeros pares
 struct Nodo{
   int dato;
   Nodo *sig;
 }*inicio;
 
+//nodo para la pila2 de numeros impares
 struct Nodo2{
   int dato;
   Nodo2 *sig;
 }*inicio2;
 
+
+//creando la clase de la pila1 con todas sus funcionalidades
 class PilaDeNumerosPares{
   public:
     Nodo *crearNodo(int valor){
@@ -53,6 +57,7 @@ class PilaDeNumerosPares{
     }
 };
 
+//creando la clase de la pila2 con todas sus funcionalidades 
 class PilaDeNumerosImpares{
   public:
     Nodo2 *crearNodo(int valor){
@@ -92,19 +97,24 @@ class PilaDeNumerosImpares{
 
 int main()
 {
+
+  //inicializamos las pilas y les damos nombre
     PilaDeNumerosPares pila1;
     PilaDeNumerosImpares pila2; 
 
-    int numeros[5], *num, par=0, impar=0;
-    cout << "Por favor ingrese 5 nùmeros: \n";
-    for(int i = 0; i < 5; i++)
+  //este for es para pedirle los numeros al usuario 
+    int numeros[6], *num, par=0, impar=0;
+    cout << "Por favor ingrese 6 nùmeros: \n";
+    for(int i = 0; i < 6; i++)
     {
         cin >> numeros[i];
     }
 
     num = numeros;
 
-   for(int i = 0; i < 5; i++)
+  //este for es para ver si es par o impar
+  //tambien llena la respectiva pila dependiendo del caso
+   for(int i = 0; i < 6; i++)
     {
         if (*num%2==0){
           par++;
@@ -117,20 +127,22 @@ int main()
         num ++; 
     }
 
-    
-    cout << "pila1: ";
+  //mostramos las dos pilas llenas 
+    cout << "Pila1: ";
     pila1.mostrarPila();
     cout << "" << endl;
 
-    cout << "pila2: ";
+    cout << "Pila2: ";
     pila2.mostrarPila2(); 
     cout << "" << endl;
     
+  //decidimos que pila tiene mas numeros o si son igual de tamaño
     if (par > impar){
-        cout << "la pila 1 tiene mas numeros "<< endl;
-    }else
-        cout << "la pila 2 tiene mas numeros " << endl;
-
+        cout << "La pila 1 tiene mas numeros "<< endl;
+    }else if (par < impar){
+        cout << "La pila 2 tiene mas numeros " << endl;
+    } else
+        cout << "Ambas pilas tienen la misma cantidad " << endl; 
     return 0; 
 
 }
