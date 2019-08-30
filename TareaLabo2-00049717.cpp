@@ -138,9 +138,18 @@ class Pila{
 
 int main()
 {
-Pila pila1;
+    Pila pila1;
 
- pila1.push(10);
- 
- pila1.mostrarPila();
+    int numeros[5];
+    cout << "Por favor ingrese 5 nùmeros: \n";
+    for(int i = 0; i < 5; i++)
+    {
+        cin >> numeros[i];
+    }
+
+    pila1.push(numeros[5]); 
+
+    pila1.mostrarPila; 
+
+
 }
