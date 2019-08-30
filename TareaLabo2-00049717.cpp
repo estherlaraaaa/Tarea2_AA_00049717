@@ -57,7 +57,7 @@ class Pila2{
       return n;
     }
 
-    void push(int valor){
+    void pusha(int valor){
       Nodo *n = crearNodo(valor);
       n->sig = inicio;
       inicio = n;
@@ -69,7 +69,7 @@ class Pila2{
       free(temp);
     }
 
-    void mostrarPila(){
+    void mostrarPila2(){
       Nodo *temp = inicio;
       if(!inicio)
         cout<<"the stack is empty"<<endl;
@@ -102,24 +102,24 @@ int main()
    for(int i = 0; i < 5; i++)
     {
         if (*num%2==0){
-          *num = par++;
+          par++;
         }
         else if(*num%2!=0){
-          *num = impar++; 
+          impar++; 
         }
         num ++; 
     }
 
     
     pila1.push(par);
-    pila2.push(impar);
+    pila2.pusha(impar);
     
-    cout << "pila1" << endl;
+    cout << "pila1: ";
     pila1.mostrarPila();
     cout << "" << endl;
 
-    cout << "pila2" << endl;
-    pila2.mostrarPila(); 
+    cout << "pila2: ";
+    pila2.mostrarPila2(); 
     cout << "" << endl;
     
     if (par > impar){
